@@ -5,9 +5,14 @@ import static java.lang.Integer.parseInt;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.nio.file.Path;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class BaiTapJava2 {
 	public static Scanner input = new Scanner(System.in);
@@ -29,26 +34,27 @@ public class BaiTapJava2 {
 		System.out.println(
 				"| 12 - nhập vào số tự nhiên n (từ 1 đến 9) và in ra tam giác vuông có độ dài tương ứng                         |");
 		System.out.println(
-				"| 13 - Viết chương trình in ra các thông tin sau đây                                                           |");
+				"| 13 - Viết chương trình cho phép nhập vào số phần tử và từng phần tử của một mảng                             |");
 		System.out.println(
-				"| 14 - Nhập vào một số tự nhiên và in ra tổng các chữ số của số tự nhiên đó                                    |");
+				"| 14 - Viết chương trình cho phép nhập vào số phần tử và từng phần tử của một mảng, xóa phần tử bị lập         |");
 		System.out.println(
-				"| 15 - Viết chương trình nhập vào tọa độ A(x1, y1) và B(x2, y2) trên hệ trục toạ độ Oxy. Tinh AB               |");
+				"| 15 - Viết chương trình cho phép nhập vào một chuỗi                                                           |");
 		System.out.println(
-				"| 16 - Viết chương trình cho phép nhập vào một chuỗi, In ra chuỗi theo thứ tự ngược lại                        |");
+				"| 16 - Viết chương trình kiểm tra xem năm nhập vào có phải năm nhuận hay không?                                |");
 		System.out.println(
-				"| 17 - nhập và in ra các ước số của số tự nhiên đó                                                             |");
+				"| 17 - Chương trình cho phép máy tính phát sinh ngẫu nhiên một số từ 1 đến 1000                                |");
 		System.out.println(
-				"| 18 - nhập vào một chuỗi viết thường, in ra chuỗi trên các ký tự đầu tiên được viết in hoa                    |");
+				"| 18 - Chương trình tính và in số năm chờ đợi                                                                  |");
 		System.out.println(
-				"| 19 - nhập vào 2 số nguyên dương (từ 10 đến 99),TRUE nếu 2 số trên có cùng một hoặc 2 chữ số, ngược lại FALSE |");
+				"| 19 - Viết chương trình giải phương trình bậc 1 và bậc 2                                                      |");
 		System.out.println(
-				"| 20 - nhập vào số tự nhiên n, in ra tổng các số nguyên tố từ 1 đến n                                         |");
+				"| 20 - Viết chương trình tách một mảng số tự nhiên được nhập từ bàn phím thành 2 mảng                          |");
 		System.out.println(
-				"| 21 - nhập vào số tự nhiên n, in ra tổng các số nguyên tố từ 1 đến n                                         |");
-
+				"| 21 - Cho 2 con kangaroo ở tren cùng 1 đường, vị trí dương                                                    |");
 		System.out.println(
-				"| 0 - THOAT                                                                                                   |");
+				"| 22 - . Viết chương trình cho phép nhập vào String, tìm ra sub string palindromic có độ dài dài nhất          |");
+		System.out.println(
+				"| 0 - THOAT                                                                                                    |");
 		System.out.println(
 				"+=============================================================================================================+");
 
@@ -67,7 +73,7 @@ public class BaiTapJava2 {
 				choose = 0;
 				continue;
 			}
-			if (choose >= 11 && choose <= 21) // KIEM TRA CO CHON TRONG 10 CHUC NANG
+			if (choose >= 11 && choose <= 22) // KIEM TRA CO CHON TRONG 10 CHUC NANG
 				break;
 			System.out.println("+======================================+");
 			System.out.println("  ######  KHONG CO CHUC NANG " + choose + " ######");
@@ -83,64 +89,76 @@ public class BaiTapJava2 {
 		switch (chosen) {
 		case 11: // CHUC NANG 11
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 11           |");
+			System.out.println("|                CHUC NANG 11          |");
 			System.out.println("+======================================+");
 			case11();
 			break;
-		case 12: // CHUC NANG 2
+		case 12: // CHUC NANG 12
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 2           |");
+			System.out.println("|                CHUC NANG 12          |");
 			System.out.println("+======================================+");
 			tamgiacSo();
 			;
 			break;
-		case 13: // CHUC NANG 3
+		case 13: // CHUC NANG 13
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 3           |");
+			System.out.println("|                CHUC NANG 13          |");
 			System.out.println("+======================================+");
 			mang13();
 			break;
-		case 4: // CHUC NANG 4
+		case 14: // CHUC NANG 14
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 4           |");
+			System.out.println("|                CHUC NANG 14          |");
 			System.out.println("+======================================+");
-			tongKySo();
+			case14();
 			break;
-		case 5: // CHUC NANG 5
+		case 15: // CHUC NANG 15
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 5           |");
+			System.out.println("|                CHUC NANG 15          |");
 			System.out.println("+======================================+");
-			tinhAB();
+			case15();
 			break;
-		case 6: // CHUC NANG 6
+		case 16: // CHUC NANG 16
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 6           |");
+			System.out.println("|                CHUC NANG 16          |");
 			System.out.println("+======================================+");
-			daoNguoc();
+			case16();
 			break;
-		case 7: // CHUC NANG 7
+		case 17: // CHUC NANG 17
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 7           |");
+			System.out.println("|                CHUC NANG 17          |");
 			System.out.println("+======================================+");
-			timUoc();
+			case17();
 			break;
-		case 8: // CHUC NANG 8
+		case 18: // CHUC NANG 18
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 8           |");
+			System.out.println("|                CHUC NANG 18          |");
 			System.out.println("+======================================+");
-			inHoa();
+			case18();
 			break;
-		case 9: // CHUC NANG 9
+		case 19: // CHUC NANG 19
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 9           |");
+			System.out.println("|                CHUC NANG 19          |");
 			System.out.println("+======================================+");
-			case9();
+			case19();
 			break;
-		case 10: // CHUC NANG 10
+		case 20: // CHUC NANG 20
 			System.out.println("+======================================+");
-			System.out.println("|                CHUC NANG 10          |");
+			System.out.println("|                CHUC NANG 20          |");
 			System.out.println("+======================================+");
-			tongNuyenTo();
+			case20();
+			break;
+		case 21: // CHUC NANG 21
+			System.out.println("+======================================+");
+			System.out.println("|                CHUC NANG 21          |");
+			System.out.println("+======================================+");
+			case21();
+			break;
+		case 22: // CHUC NANG 22
+			System.out.println("+======================================+");
+			System.out.println("|                CHUC NANG 22          |");
+			System.out.println("+======================================+");
+			case22();
 			break;
 		case 0: // THOAT CHUONG TRINH
 			System.out.println("+======================================+");
@@ -266,146 +284,303 @@ public class BaiTapJava2 {
 		System.out.println("Nho nhat: " + min);
 		System.out.println("Duong Nho nhat: " + duongMin);
 		System.out.println("Am lon nhat: " + amMax);
+		
+		
+		// Khởi tạo một ArrayList mới và sao chép tất cả các phần tử từ ArrayList cũ sang ArrayList mới
+        List<Integer> newList = new ArrayList<>();
+
+        for(int i=0;i < soLuong;i++){
+            newList.add(arr[i]);
+        }
+
+        System.out.println("Nhập vào vị trí muốn thêm");
+        int index = input.nextInt();
+
+        System.out.println("Nhập vào giá trị muốn thêm");
+        int newValue = input.nextInt();
+
+        newList.add(index, newValue);
+        System.out.println("Mảng được thêm là: " + newList + "\n");
+
+        System.out.println("Nhập vào vi tri muốn xóa");
+        int indexRemove = input.nextInt();
+
+        newList.remove(indexRemove);
+        System.out.println("Mảng đã xóa là: " + newList + "\n");
+		
+		
 		askExit();
 	}
 
-//  CHUC NANG 4
-	public static void tongKySo() {
-		System.out.println("Nhap so: ");
-		int num = input.nextInt();
-		int kq = 0;
-		int bienDem;
-		while (num <= 0) {
-			System.out.print("Số nhập vào phải lớn hơn 0. Mời bạn nhập lại: ");
-			num = input.nextInt();
-		}
-		while (num > 0) {
-			bienDem = num % 10;
-			kq += bienDem;
-			num /= 10;
-		}
-		System.out.println("Tong cac chu so: " + kq);
+//  CHUC NANG 14
+	public static void case14() {
+        // Nhập vào số phần tử của mảng
+        System.out.print("Nhập vào số phần tử của mảng: ");
+        int m = input.nextInt();
+
+        // Khởi tạo một HashSet để lưu trữ các giá trị của mảng
+        Set<Integer> set = new HashSet();
+
+        // Nhập giá trị cho mảng và thêm vào HashSet
+        for (int i = 0; i < m; i++) {
+            System.out.print("Nhập phần tử thứ " + (i + 1) + ": ");
+            int value = input.nextInt();
+            set.add(value);
+        }
+
+        // Khởi tạo một mảng mới với độ dài bằng kích thước của HashSet
+        int[] newArray = new int[set.size()];
+
+        // Chuyển các giá trị từ HashSet sang mảng mới
+        int index2 = 0;
+        for (int value : set) {
+            newArray[index2++] = value;
+        }
+
+        // In ra mảng mới
+        System.out.println("Mảng mới sau khi loại bỏ các phần tử trùng lặp:");
+        System.out.println(Arrays.toString(newArray));
 		askExit();
 	}
 
-//	CHUC NANG 5
-	public static void tinhAB() {
-		double xA, yA; // tọa độ điểm A
-		double xB, yB; // tọa độ điểm B
-		double dodaiAB; // độ dài đoạn thắng AB
+//	CHUC NANG 15
+	public static void case15() {
 		Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhập chuỗi: ");
+        String input = scanner.nextLine();
 
-		System.out.println("Nhập tọa độ điểm A: ");
-		System.out.println("\tNhập hoành độ điểm A:");
-		xA = scanner.nextDouble();
-		System.out.println("\tNhập tung độ điểm A: ");
-		yA = scanner.nextDouble();
+        // a) Độ dài của chuỗi
+        int length = input.length();
+        System.out.println("Độ dài của chuỗi là: " + length);
 
-		System.out.println("\nNhập tọa độ điểm B: ");
-		System.out.println("\tNhập hoành độ điểm B: ");
-		xB = scanner.nextDouble();
-		System.out.println("\tNhập tung độ điểm B: ");
-		yB = scanner.nextDouble();
+        // b) Ký tự tại vị trí nhất định
+        System.out.print("Nhập vị trí muốn lấy ký tự: ");
+        int index = scanner.nextInt();
+        char character = input.charAt(index);
+        System.out.println("Ký tự tại vị trí " + index + " là: " + character);
 
-		// tính độ dài AB
-		dodaiAB = Math.sqrt(Math.pow((xB - xA), 2) + Math.pow((yB - yA), 2));
-		System.out.println("Độ dài đoạn thắng AB = " + dodaiAB);
+        // c) Kiểm tra xem có chuỗi phụ "abcdef" hay không
+        boolean containsSubstring = input.contains("abcdef"); //contains kiểm tra xem chuỗi (?) có phụ thuộc ? không
+        if (containsSubstring) {
+            System.out.println("Chuỗi vừa nhập có chứa chuỗi phụ \"abcdef\".");
+        } else {
+            System.out.println("Chuỗi vừa nhập không có chứa chuỗi phụ \"abcdef\".");
+        }
+		askExit();
+	}
+	
+//	CHUC NANG 16
+	public static void case16() {
+		int year;
+        System.out.println("Nhập vào năm bạn cần kiểm tra:");
+        year = input.nextInt();
+        boolean isLeap = false;
+        if(year % 4 == 0)//chia hết cho 4 là năm nhuận
+        {
+            if( year % 100 == 0)
+            //nếu vừa chia hết cho 4 mà vừa chia hết cho 100 thì không phải năm nhuận
+            {
+                if ( year % 400 == 0)//chia hết cho 400 là năm nhuận
+                    isLeap = true;
+                else
+                    isLeap = false;//không chia hết cho 400 thì không phải năm nhuận
+            }
+            else//chia hết cho 4 nhưng không chia hết cho 100 là năm nhuận
+                isLeap = true;
+        }
+        else {
+            isLeap = false;
+        }
+        if(isLeap==true)
+            System.out.println(year + " là năm nhuận.");
+        else
+            System.out.println(year + " không phải là năm nhuận.");
 		askExit();
 	}
 
-//	CHUC NANG 6
-	public static void daoNguoc() {
-		System.out.println("Vui long nhap chuoi: ");
-		String chuoi = input.nextLine();
-		StringBuilder str = new StringBuilder(chuoi);
-		System.out.println(str.reverse().toString());
+//	CHUC NANG 17
+	public static void case17() {
+		Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int secretNumber = random.nextInt(100) + 1;
+        int guess = 0;
+        int numGuesses = 0;
+
+        System.out.println("Đây là game mò số hehe!");
+        System.out.println("Bạn hãy đoán thử từ số 1 đến số 100");
+        System.out.println("Bạn đoán nó sẽ là gì? Bạn có 4 lần đoán!");
+
+        while (guess != secretNumber && numGuesses < 4) {
+            System.out.print("Enter your guess: ");
+            guess = scanner.nextInt();
+            numGuesses++;
+            if (guess < secretNumber) {
+                System.out.println("Hơi thấp rồi. Lại đi!.");
+            } else if (guess > secretNumber) {
+                System.out.println("Cao quá bạn tôi ơi. Lại nào!.");
+            } else {
+                System.out.println("Đoán trúng rồi! Qúa đỉnh cậu ơi.");
+            }
+        }
+
+        if (numGuesses >= 4) {
+            System.out.println("Xin lỗi bạn đã thua cuộc. Bạn đã hết lượt");
+            System.out.println("Đáp án là " + secretNumber);
+        }
+
+
+		askExit();
+
+	}
+
+//	CHUC NANG 18
+	public static void case18() {
+		Scanner sc = new Scanner(System.in);
+        double interestRate = 0.05;
+
+        System.out.println("Chào mừng đến với ngân hàng siêu cấp vô địch uy tín ");
+        System.out.println("Bạn hãy nhập số tiền muốn gửi: ");
+        double money = sc.nextDouble();
+        
+        double xe_hoi = 20000, nha = 50000;
+        System.out.println("Mời bạn chọn thứ muốn mua");
+        System.out.println("1. Xe hơi. Giá: " + xe_hoi + "USD");
+        System.out.println("2. Nhà. Giá: " + nha + "USD");
+        int choice = sc.nextInt();
+
+        switch(choice) {
+            case 1:
+            	if(money>xe_hoi) {
+            		System.out.println("Bạn quá giàu rồi không cần phải đợi chờ gì nữa, mua luôn đi!");
+            	} else {
+            		
+                double t = (Math.log(xe_hoi/money))/(Math.log(Math.E)*interestRate);
+                System.out.printf("Số năm ít nhất mà anh X phải chờ đợi là: %.2f \n", t);
+            	}
+                break;
+            case 2:
+            	if(money>nha) {
+            		System.out.println("Bạn quá giàu rồi không cần phải đợi chờ gì nữa, mua luôn đi!");
+            	} else {
+                double result = (Math.log(nha/money))/(Math.log(Math.E)*interestRate);
+                System.out.printf("Số năm ít nhất mà anh X phải chờ đợi là: %.2f \n", result);
+            	}
+                break;
+            default:
+                System.out.println("Lựa chọn không hợp lệ.");
+        }
 		askExit();
 	}
 
-//	CHUC NANG 7
-	public static void timUoc() {
-		System.out.println("Nhap so muon tim uoc: ");
-		List<Integer> list = new ArrayList<>();
-		int num = input.nextInt();
-		while (num <= 0) {
-			System.out.print("Số nhập vào phải lớn hơn 0. Mời bạn nhập lại: ");
-			num = input.nextInt();
-		}
-		for (int i = 1; i <= num; i++) {
-			if (num % i == 0) {
-				list.add(i);
-			}
-		}
-		System.out.println(list);
-		askExit();
+//	CHUC NANG 19
+	public static void case19() {
+		DecimalFormat decimalFormat = new DecimalFormat("#.##");    // làm tròn đến 2 chữ số thập phân
+        Scanner scanner = new Scanner(System.in);
 
-	}
-
-//	CHUC NANG 8
-	public static void inHoa() {
-		System.out.println("Nhap chuoi muon chuyen doi: ");
-
-		String kq = "";
-		String num = input.nextLine();
-		String[] list = num.split(" ");
-		for (String x : list) {
-			String firstLetter = x.substring(0, 1);
-			String remainingLetters = x.substring(1, x.length());
-			firstLetter = firstLetter.toUpperCase();
-			x = firstLetter + remainingLetters;
-			kq += x + " ";
-		}
-		System.out.println(kq.trim());
+        int aNumber, bNumber;
+        System.out.println("Nhập vào số a: ");
+        aNumber = scanner.nextInt();
+        System.out.println("Nhập vào số b: ");
+        bNumber = scanner.nextInt();
+        System.out.println("Phương trình bạn vừa nhập vào là: " + aNumber + "x + " + bNumber + " = 0.");
+        if (aNumber == 0) {
+            if (bNumber == 0) {
+                System.out.println("Phương trình này có vô số nghiệm.");
+            } else {
+                System.out.println("Phương trình vô nghiệm.");
+            }
+        } else {
+            double nghiem = (double) -bNumber / aNumber;   // ép kiểu để cho ra kết quả chính xác
+            System.out.println("Phương trình có nghiệm x = " + decimalFormat.format(nghiem) + ".");
+        }
 		askExit();
 	}
 
-//	CHUC NANG 9
-	public static void case9() {
-		boolean kq = false;
-		System.out.println("Nhap so thu nhat: ");
-		int s1 = input.nextInt();
-		System.out.println("Nhap so thu hai: ");
-		int s2 = input.nextInt();
-		List<Integer> list1 = new ArrayList<>();
-		List<Integer> list2 = new ArrayList<>();
-		list1.add(s1 / 10);// 15/10=1
-		list1.add(s1 - (s1 / 10) * 10);
-		list2.add(s2 / 10);
-		list2.add(s2 - (s2 / 10) * 10);
-		for (int x : list1) {
-			for (int y : list2) {
-				if (x == y) {
-					kq = true;
-				}
-			}
-		}
-		System.out.println("Ket qua : " + kq);
-		askExit();
-	}
+//	CHUC NANG 20
+	public static void case20() {
+		Scanner scanner = new Scanner(System.in);
+        int n;
+        do {
+            System.out.println("\nNhập vào số phần tử của mảng: ");
+            n = scanner.nextInt();
+            System.out.println(n);
+        } while (n < 0);
 
-//	CHUC NANG 10
-	public static void tongNuyenTo() {
-		System.out.println("Nhap so: ");
-		int soNhap = input.nextInt();
-		int num = 0;
-		int kq = 0;
-		List<Integer> list = new ArrayList<>();
-		for (int i = 1; i <= soNhap; i++) {
-			int count = 0;
-			for (int j = 1; j <= i; j++) {
-				if (i % j == 0) {
-					count += 1;
-				}
-			}
-			if (count == 2) {
-				list.add(i);
-			}
-		}
-		for (int x : list) {
-			kq += x;
-		}
-		System.out.println(list);
-		System.out.println("Tong cac so Nguyen To là: " + kq);
+        int array[] = new int[n];
+
+        System.out.println("\nNhập các phần tử cho mảng: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Nhập phần tử thứ " + i + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        int[] evenNumbers = new int[array.length];
+        int[] oddNumbers = new int[array.length];
+        int evenIndex = 0;
+        int oddIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                evenNumbers[evenIndex] = array[i];
+                evenIndex++;
+            } else {
+                oddNumbers[oddIndex] = array[i];
+                oddIndex++;
+            }
+        }
+
+        System.out.print("Số chẵn: ");
+        for (int i = 0; i < evenIndex; i++) {
+            System.out.print(evenNumbers[i] + " ");
+        }
+        System.out.println();
+
+        System.out.print("Số lẻ: ");
+        for (int i = 0; i < oddIndex; i++) {
+            System.out.print(oddNumbers[i] + " ");
+        }
 		askExit();
 	}
+	public static void case21() {
+		System.out.println("Tới khúc này đọc đề nhức đầu quá mentor oiiiiii");
+		System.out.println("Em sẽ hoàn thiện sau khi hết nhức đầu!!!");
+		askExit();
+	}
+	public static void case22() {
+		Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+
+        int maxLength = 0;
+		 String longestPalindromicSubStr = "";
+
+	        for (int i = 0; i < str.length(); i++) {
+	            for (int j = i + 1; j <= str.length(); j++) {
+	                String subStr = str.substring(i, j);
+	                if (isPalindromic(subStr) && subStr.length() > maxLength) {
+	                    maxLength = subStr.length();
+	                    longestPalindromicSubStr = subStr;
+	                }
+	            }
+	        }
+
+	        System.out.println("Longest palindromic substring: " + longestPalindromicSubStr);
+	        System.out.println();
+	        System.out.println();
+	        System.out.println("CẢM ƠN MENTOR NHIỀU LẮM !!!!!");
+	        askExit();
+	}
+	//ho tro case 22
+	public static boolean isPalindromic(String str) {
+        int i = 0;
+        int j = str.length() - 1;
+        while (i < j) {
+            if (str.charAt(i) != str.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
 }
